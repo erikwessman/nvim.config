@@ -13,7 +13,7 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use "EdenEast/nightfox.nvim"
+  use { "ellisonleao/gruvbox.nvim" }
 
   use "nvim-tree/nvim-tree.lua"
 
@@ -59,6 +59,25 @@ return require('packer').startup(function(use)
 		  {'hrsh7th/cmp-nvim-lsp'},
 		  {'L3MON4D3/LuaSnip'},
 	  }
+  }
+
+  use {
+    'nvim-treesitter/nvim-treesitter-context',
+    requires = {'nvim-treesitter/nvim-treesitter'}, -- This line ensures that nvim-treesitter is installed as a dependency
+    config = function()
+      require'treesitter-context'.setup{
+        enable = true,
+        max_lines = 0,
+        min_window_height = 0,
+        line_numbers = true,
+        multiline_threshold = 20,
+        trim_scope = 'outer',
+        mode = 'cursor',
+        separator = '-',
+        zindex = 20,
+        on_attach = nil,
+      }
+    end
   }
 
 end)
