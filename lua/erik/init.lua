@@ -24,6 +24,7 @@ local function my_on_attach(bufnr)
   vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
 end
 
+-- setup with some options
 require("nvim-tree").setup({
   sort = {
     sorter = "case_sensitive",
@@ -37,5 +38,5 @@ require("nvim-tree").setup({
   filters = {
     dotfiles = true,
   },
-on_attach = my_on_attach,
+  on_attach = my_on_attach,
 })
